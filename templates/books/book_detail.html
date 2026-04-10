@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ book.title }} — The Classics Shelf{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+
+      <a href="{% url 'book_list' %}" class="text-muted" style="font-size:0.85rem;">← Back to Browse</a>
+
+      <div class="book-card mt-3 p-4">
+
+        {% if book.cover_image %}
+          <img src="{{ book.cover_image.url }}" alt="{{ book.title }}"
+               style="width:100%; height:300px; object-fit:contain; object-position:center; background:#f8f6f1; border-radius:8px; margin-bottom:1.5rem;">
+        {% else %}
+          <div class="book-cover cover-amber mb-4" style="border-radius:8px; height:200px;">
+            <div>
+              <div style="font-size:1.2rem; font-weight:500;">{{ book.title }}</div>
+              <div style="font-size:0.9rem; margin-top:6px; font-style:italic;">{{ book.author }}</div>
+            </div>
+          </div>
+        {% endif %}
+
+        <h1 style="font-size:1.8rem; font-weight:400;">{{ book.title }}</h1>
+        <p class="text-muted" style="font-style:italic;">{{ book.author }} &middot; {{ book.year_published }}</p>
+
+        {% if book.genre %}
+          <span class="genre-badge">{{ book.genre }}</span>
+        {% endif %}
+
+        <hr style="border-color:#e8e4db; margin: 1.5rem 0;">
+
+        <p style="line-height:1.8;">{{ book.description }}</p>
+
+        <div class="mt-4">
+          {% if user.is_authenticated %}
+            {% if is_favourite %}
+              <a href="{% url 'favourite_toggle' book.pk %}" class="btn btn-outline-primary">♥ Remove from Favourites</a>
+            {% else %}
+              <a href="{% url 'favourite_toggle' book.pk %}" class="btn btn-primary">♡ Add to Favourites</a>
+            {% endif %}
+          {% else %}
+            <a href="{% url 'login' %}" class="btn btn-outline-primary">Login to Save Favourites</a>
+          {% endif %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

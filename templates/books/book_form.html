@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Add a Book — The Classics Shelf{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-md-7">
+
+      <div class="book-card p-5">
+
+        <div class="text-center mb-4">
+          <div style="font-size:2.5rem; margin-bottom:0.5rem;">📖</div>
+          <h2 style="font-weight:400; margin-bottom:0.25rem;">Add a <em style="color:#854F0B;">Classic.</em></h2>
+          <p class="text-muted" style="font-size:0.9rem;">Contribute a timeless work to the shelf.</p>
+        </div>
+
+        <hr style="border-color:#e8e4db; margin-bottom:2rem;">
+
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+
+          <div class="mb-4">
+            <label class="form-label fw-500" style="font-size:0.85rem; color:#5f5e5a; letter-spacing:0.03em;">TITLE</label>
+            <input type="text" name="title" class="form-control form-control-lg" 
+                   placeholder="e.g. Jane Eyre" 
+                   value="{{ form.title.value|default:'' }}"
+                   style="border-color:#e8e4db; font-family:'Playfair Display', serif; font-size:1rem;">
+            {% if form.title.errors %}
+              <p class="text-danger mt-1" style="font-size:0.8rem;">{{ form.title.errors.0 }}</p>
+            {% endif %}
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label" style="font-size:0.85rem; color:#5f5e5a; letter-spacing:0.03em;">AUTHOR</label>
+            <input type="text" name="author" class="form-control form-control-lg"
+                   placeholder="e.g. Charlotte Brontë"
+                   value="{{ form.author.value|default:'' }}"
+                   style="border-color:#e8e4db; font-size:1rem;">
+            {% if form.author.errors %}
+              <p class="text-danger mt-1" style="font-size:0.8rem;">{{ form.author.errors.0 }}</p>
+            {% endif %}
+          </div>
+
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <label class="form-label" style="font-size:0.85rem; color:#5f5e5a; letter-spacing:0.03em;">YEAR PUBLISHED</label>
+              <input type="number" name="year_published" class="form-control form-control-lg"
+                     placeholder="e.g. 1847"
+                     value="{{ form.year_published.value|default:'' }}"
+                     style="border-color:#e8e4db; font-size:1rem;">
+              {% if form.year_published.errors %}
+                <p class="text-danger mt-1" style="font-size:0.8rem;">{{ form.year_published.errors.0 }}</p>
+              {% endif %}
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" style="font-size:0.85rem; color:#5f5e5a; letter-spacing:0.03em;">GENRE</label>
+              <select name="genre" class="form-select form-select-lg" style="border-color:#e8e4db; font-size:1rem;">
+                <option value="">Select a genre</option>
+                {% for genre in form.genre.field.queryset %}
+                  <option value="{{ genre.pk }}" {% if form.genre.value == genre.pk %}selected{% endif %}>
+                    {{ genre.name }}
+                  </option>
+                {% endfor %}
+              </select>
+              {% if form.genre.errors %}
+                <p class="text-danger mt-1" style="font-size:0.8rem;">{{ form.genre.errors.0 }}</p>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label" style="font-size:0.85rem; color:#5f5e5a; letter-spacing:0.03em;">SYNOPSIS</label>
+            <textarea name="description" class="form-control" rows="5"
+                      placeholder="Write a brief synopsis of the book..."
+                      style="border-color:#e8e4db; font-size:0.95rem; line-height:1.7;">{{ form.description.value|default:'' }}</textarea>
+            {% if form.description.errors %}
+              <p class="text-danger mt-1" style="font-size:0.8rem;">{{ form.description.errors.0 }}</p>
+            {% endif %}
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label" style="font-size:0.85rem; color:#5f5e5a; letter-spacing:0.03em;">COVER IMAGE</label>
+            <div style="border:2px dashed #e8e4db; border-radius:8px; padding:1.5rem; text-align:center;">
+              <div style="font-size:1.5rem; margin-bottom:0.5rem;">🖼</div>
+              <p class="text-muted mb-2" style="font-size:0.85rem;">Upload a cover image for this book</p>
+              <input type="file" name="cover_image" accept="image/*" class="form-control"
+                     style="border-color:#e8e4db; font-size:0.85rem;">
+            </div>
+            {% if form.cover_image.errors %}
+              <p class="text-danger mt-1" style="font-size:0.8rem;">{{ form.cover_image.errors.0 }}</p>
+            {% endif %}
+          </div>
+
+          <div class="d-grid mt-4">
+            <button type="submit" class="btn btn-primary btn-lg" 
+                    style="font-family:'Playfair Display', serif; letter-spacing:0.05em;">
+              Add to the Shelf
+            </button>
+          </div>
+
+        </form>
+
+        <div class="text-center mt-3">
+          <a href="{% url 'book_list' %}" class="text-muted" style="font-size:0.85rem;">← Back to Browse</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

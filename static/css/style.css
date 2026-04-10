@@ -1,0 +1,180 @@
+:root {
+  --bg: #faf8f4;
+  --surface: #ffffff;
+  --text: #2c2c2a;
+  --muted: #5f5e5a;
+  --border: #e8e4db;
+  --primary: #854F0B;
+  --primary-dark: #633806;
+  --footer-bg: #2c2c2a;
+  --footer-text: #888780;
+  --shadow: rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Lora', Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+.navbar-brand {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Navbar */
+.navbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar-brand {
+  font-size: 1.4rem;
+  color: var(--text) !important;
+}
+
+.navbar-brand span {
+  font-style: italic;
+  color: var(--primary);
+}
+
+.nav-link {
+  color: var(--muted) !important;
+  font-size: 0.9rem;
+}
+
+.nav-link:hover {
+  color: var(--primary) !important;
+}
+
+/* Buttons */
+.btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.btn-outline-primary {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* Book cards */
+.book-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.book-card:hover {
+  box-shadow: 0 4px 16px var(--shadow);
+}
+
+.book-cover {
+  height: 160px;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  padding: 1rem;
+}
+
+.cover-amber {
+  background: #FAEEDA;
+  color: #633806;
+}
+
+.cover-blue {
+  background: #E6F1FB;
+  color: #0C447C;
+}
+
+.cover-purple {
+  background: #EEEDFE;
+  color: #3C3489;
+}
+
+.cover-teal {
+  background: #E1F5EE;
+  color: #085041;
+}
+
+.cover-coral {
+  background: #FAECE7;
+  color: #712B13;
+}
+
+.genre-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 20px;
+  background: #FAEEDA;
+  color: #633806;
+  border: none;
+}
+
+/* Hero */
+.hero {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 3rem 0;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 2.8rem;
+  font-weight: 400;
+}
+
+.hero h1 em {
+  color: var(--primary);
+}
+
+/* Footer */
+footer {
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  font-size: 0.85rem;
+  padding: 2rem 0;
+  margin-top: 4rem;
+}
+
+/* Utilities */
+.alert {
+  border-radius: 8px;
+}
