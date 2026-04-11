@@ -12,6 +12,9 @@ class BookListView(ListView):
     template_name = 'books/book_list.html'
     context_object_name = 'books'
 
+    def get_queryset(self):
+        return Book.objects.order_by('?')
+
 class BookDetailView(DetailView):
     model = Book
     template_name = 'books/book_detail.html'
@@ -26,6 +29,13 @@ class BookDetailView(DetailView):
             ).exists()
         else:
             context['is_favourite'] = False
+
+        all_books = list(Book.objects.order_by('title'))
+        current_index = next((i for i, b in enumerate(all_books) if b.pk == self.object.pk), None)
+
+        context['prev_book'] = all_books[current_index - 1] if current_index > 0 else all_books[-1]
+        context['next_book'] = all_books[current_index + 1] if current_index < len(all_books) - 1 else all_books[0]
+
         return context
 
 class BookCreateView(LoginRequiredMixin, CreateView):

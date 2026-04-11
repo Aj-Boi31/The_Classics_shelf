@@ -20,32 +20,36 @@
     </div>
   {% endif %}
 
-  <div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="row row-cols-2 row-cols-md-6 g-4">
     {% for book in books %}
       <div class="col">
-        <div class="book-card h-100">
-          {% if book.cover_image %}
-            <img src="{{ book.cover_image.url }}" alt="{{ book.title }}" 
-                 style="width:100%; height:160px; object-fit:cover; border-radius:10px 10px 0 0;">
-          {% else %}
-            <div class="book-cover cover-amber">
-              <div>
-                <div style="font-size:1rem; font-weight:500;">{{ book.title }}</div>
-                <div style="font-size:0.8rem; margin-top:4px; font-style:italic;">{{ book.author }}</div>
+        <a href="{% url 'book_detail' book.pk %}" style="text-decoration:none; color:inherit;">
+          <div class="book-card h-100 text-center">
+
+            {% if book.cover_image %}
+              <div style="height:260px; overflow:hidden; border-radius:10px 10px 0 0; background:#f8f6f1; display:flex; align-items:center; justify-content:center;">
+                <img src="{{ book.cover_image.url }}" alt="{{ book.title }}"
+                     style="max-width:100%; max-height:100%; object-fit:contain;">
               </div>
-            </div>
-          {% endif %}
-          <div class="p-3">
-            <h5 class="mb-1" style="font-size:1rem;">{{ book.title }}</h5>
-            <p class="text-muted mb-2" style="font-size:0.85rem; font-style:italic;">{{ book.author }} &middot; {{ book.year_published }}</p>
-            {% if book.genre %}
-              <span class="genre-badge">{{ book.genre }}</span>
+            {% else %}
+              <div class="book-cover cover-amber" style="height:260px; border-radius:10px 10px 0 0;">
+                <div>
+                  <div style="font-size:1rem; font-weight:500;">{{ book.title }}</div>
+                  <div style="font-size:0.8rem; margin-top:4px; font-style:italic;">{{ book.author }}</div>
+                </div>
+              </div>
             {% endif %}
-            <div class="mt-3">
-              <a href="{% url 'book_detail' book.pk %}" class="btn btn-outline-primary btn-sm">View Details</a>
+
+            <div class="p-3">
+              <h5 style="font-size:0.85rem; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; margin-bottom:4px;">{{ book.title }}</h5>
+              <p style="font-size:0.8rem; color:#5f5e5a; font-style:italic; margin-bottom:6px;">by {{ book.author }}</p>
+              {% if book.genre %}
+                <span class="genre-badge">{{ book.genre }}</span>
+              {% endif %}
             </div>
+
           </div>
-        </div>
+        </a>
       </div>
     {% empty %}
       <div class="col-12">

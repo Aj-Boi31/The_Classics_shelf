@@ -4,19 +4,19 @@
 
 {% block content %}
 
-<div class="container mt-5 mb-5">
-  <div class="row justify-content-center">
-    <div class="col-md-7">
+<div class="container mt-5 mb-5" style="min-height:50vh;">
+  <div class="row justify-content-center align-items-start g-5">
 
-      <div class="book-card p-5">
+    <!-- Left: intro text -->
+    <div class="col-md-4">
+      <div style="font-size:2.5rem; margin-bottom:0.5rem;">✉️</div>
+      <h2 style="font-weight:400; margin-bottom:0.25rem;">Get in <em style="color:#854F0B;">Touch.</em></h2>
+      <p class="text-muted" style="font-size:0.9rem;">Have a suggestion or a question? We'd love to hear from you.</p>
+    </div>
 
-        <div class="text-center mb-4">
-          <div style="font-size:2.5rem; margin-bottom:0.5rem;">✉️</div>
-          <h2 style="font-weight:400; margin-bottom:0.25rem;">Get in <em style="color:#854F0B;">Touch.</em></h2>
-          <p class="text-muted" style="font-size:0.9rem;">Have a suggestion or a question? We'd love to hear from you.</p>
-        </div>
-
-        <hr style="border-color:#e8e4db; margin-bottom:2rem;">
+    <!-- Right: form -->
+    <div class="col-md-5">
+      <div class="book-card p-4">
 
         {% if messages %}
           {% for message in messages %}
@@ -33,9 +33,6 @@
                    placeholder="e.g. Jane Austen"
                    value="{{ form.name.value|default:'' }}"
                    style="border-color:#e8e4db; font-size:1rem;">
-            {% if form.name.errors %}
-              <p class="text-danger mt-1" style="font-size:0.8rem;">{{ form.name.errors.0 }}</p>
-            {% endif %}
           </div>
 
           <div class="mb-4">
@@ -44,19 +41,13 @@
                    placeholder="e.g. jane@example.com"
                    value="{{ form.email.value|default:'' }}"
                    style="border-color:#e8e4db; font-size:1rem;">
-            {% if form.email.errors %}
-              <p class="text-danger mt-1" style="font-size:0.8rem;">{{ form.email.errors.0 }}</p>
-            {% endif %}
           </div>
 
           <div class="mb-4">
             <label class="form-label" style="font-size:0.85rem; color:#5f5e5a; letter-spacing:0.03em;">MESSAGE</label>
-            <textarea name="message" class="form-control" rows="6"
+            <textarea name="message" class="form-control" rows="5"
                       placeholder="Write your message here..."
                       style="border-color:#e8e4db; font-size:0.95rem; line-height:1.7;">{{ form.message.value|default:'' }}</textarea>
-            {% if form.message.errors %}
-              <p class="text-danger mt-1" style="font-size:0.8rem;">{{ form.message.errors.0 }}</p>
-            {% endif %}
           </div>
 
           <div class="d-grid mt-4">
@@ -67,13 +58,9 @@
           </div>
 
         </form>
-
-        <div class="text-center mt-3">
-          <a href="{% url 'book_list' %}" class="text-muted" style="font-size:0.85rem;">← Back to Browse</a>
-        </div>
-
       </div>
     </div>
+
   </div>
 </div>
 

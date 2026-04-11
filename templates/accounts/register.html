@@ -4,30 +4,30 @@
 
 {% block content %}
 
-<div class="container mt-5">
+<div class="container mt-5 mb-5" style="min-height:65vh;">
   <div class="row justify-content-center">
     <div class="col-md-5">
 
       <div class="book-card p-4">
-        <h2 style="font-weight:400; margin-bottom:0.25rem;">Join the <em style="color:#854F0B;">Shelf.</em></h2>
-        <p class="text-muted mb-4" style="font-size:0.9rem;">Create an account to save your favourite classics.</p>
+        <h2 class="form-title">Join the <em>Shelf.</em></h2>
+        <p class="text-muted form-subtitle mb-4">Create an account to save your favourite classics.</p>
 
         <form method="post">
           {% csrf_token %}
           {% for field in form %}
             <div class="mb-3">
-              <label class="form-label" style="font-size:0.85rem;">{{ field.label }}</label>
+              <label class="form-label form-label-custom">{{ field.label }}</label>
               {{ field }}
               {% if field.errors %}
-                <p class="text-danger" style="font-size:0.8rem;">{{ field.errors.0 }}</p>
+                <p class="text-danger form-error-text">{{ field.errors.0 }}</p>
               {% endif %}
             </div>
           {% endfor %}
-          <button type="submit" class="btn btn-primary w-100">Create Account</button>
+          <button type="submit" class="btn btn-primary w-100 form-submit-btn">Create Account</button>
         </form>
 
-        <p class="text-center mt-3 text-muted" style="font-size:0.85rem;">
-          Already have an account? <a href="{% url 'login' %}" style="color:#854F0B;">Login here</a>
+        <p class="text-center mt-3 text-muted form-footer-text">
+          Already have an account? <a href="{% url 'login' %}" class="link-highlight">Login here</a>
         </p>
       </div>
 
