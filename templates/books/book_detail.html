@@ -33,6 +33,10 @@
           <a href="{% url 'favourite_toggle' book.pk %}" class="btn btn-primary" 
              style="width:220px; color:#fff; text-decoration:none;">♡ Add to Favourites</a>
         {% endif %}
+
+        <a href="{% url 'book_delete' book.pk %}" class="btn btn-outline-danger mt-2"
+           style="width:220px; text-decoration:none;">🗑 Delete Book</a>
+
       {% else %}
         <a href="{% url 'login' %}" class="btn btn-outline-primary" 
            style="width:220px; color:#854F0B; text-decoration:none;">Login to Save Favourites</a>

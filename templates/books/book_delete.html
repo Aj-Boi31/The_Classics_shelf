@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete Book — The Classics Shelf{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5 mb-5" style="min-height:65vh; padding-top:5rem;">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <div class="book-card p-5 text-center">
+        <div style="font-size:2.5rem; margin-bottom:0.5rem;">🗑️</div>
+        <h2 style="font-weight:400;">Delete <em style="color:#854F0B;">{{ book.title }}</em>?</h2>
+        <p class="text-muted mt-2">This action cannot be undone.</p>
+        <hr style="border-color:#e8e4db;">
+        <form method="post">
+          {% csrf_token %}
+          <div class="d-flex gap-3 justify-content-center mt-3">
+            <button type="submit" class="btn btn-danger">Yes, Delete</button>
+            <a href="{% url 'book_detail' book.pk %}" class="btn btn-outline-primary">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

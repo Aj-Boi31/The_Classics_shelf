@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from .models import Book, Favourite, Genre
@@ -52,6 +52,11 @@ class BookCreateView(LoginRequiredMixin, CreateView):
     model = Book
     template_name = 'books/book_form.html'
     fields = ['title', 'author', 'year_published', 'genre', 'description', 'cover_image']
+    success_url = reverse_lazy('book_list')
+
+class BookDeleteView(LoginRequiredMixin, DeleteView):
+    model = Book
+    template_name = 'books/book_delete.html'
     success_url = reverse_lazy('book_list')
 
 @login_required
