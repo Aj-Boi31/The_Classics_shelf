@@ -4,34 +4,79 @@
 
 {% block content %}
 
-<div class="container mt-5 mb-5" style="min-height:65vh;">
-  <div class="row justify-content-center">
-    <div class="col-md-5">
+<div class="container mt-5 mb-5" style="min-height:70vh;">
+  <div class="row justify-content-center align-items-start g-5">
 
+    <!-- Left: intro -->
+    <div class="col-md-4">
+      <div style="font-size:2.5rem; margin-bottom:0.5rem;">📖</div>
+      <h2 style="font-weight:400; margin-bottom:0.25rem;">Join the <em style="color:#854F0B;">Shelf.</em></h2>
+      <p class="text-muted" style="font-size:0.9rem; line-height:1.8;">Create a free account to start saving your favourite classic works and contribute to the collection.</p>
+      <hr style="border-color:#e8e4db;">
+      <p class="text-muted" style="font-size:0.85rem;">Already have an account? <a href="{% url 'login' %}" style="color:#854F0B;">Login here</a></p>
+    </div>
+
+    <!-- Right: form -->
+    <div class="col-md-5">
       <div class="book-card p-4">
-        <h2 class="form-title">Join the <em>Shelf.</em></h2>
-        <p class="text-muted form-subtitle mb-4">Create an account to save your favourite classics.</p>
 
         <form method="post">
           {% csrf_token %}
-          {% for field in form %}
-            <div class="mb-3">
-              <label class="form-label form-label-custom">{{ field.label }}</label>
-              {{ field }}
-              {% if field.errors %}
-                <p class="text-danger form-error-text">{{ field.errors.0 }}</p>
-              {% endif %}
+
+          <div class="row g-3">
+
+            <!-- Left: fields -->
+            <div class="col-md-7">
+
+              <div class="mb-3">
+                <label class="form-label form-label-custom">USERNAME</label>
+                <input type="text" name="username" value="{{ form.username.value|default:'' }}" class="form-control form-control-custom" required>
+                {% if form.username.errors %}
+                  <p class="text-danger mt-1" style="font-size:0.8rem;">{{ form.username.errors.0 }}</p>
+                {% endif %}
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label form-label-custom">PASSWORD</label>
+                <input type="password" name="password1" class="form-control form-control-custom" required>
+                {% if form.password1.errors %}
+                  <p class="text-danger mt-1" style="font-size:0.8rem;">{{ form.password1.errors.0 }}</p>
+                {% endif %}
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label form-label-custom">CONFIRM PASSWORD</label>
+                <input type="password" name="password2" class="form-control form-control-custom" required>
+                {% if form.password2.errors %}
+                  <p class="text-danger mt-1" style="font-size:0.8rem;">{{ form.password2.errors.0 }}</p>
+                {% endif %}
+              </div>
+
             </div>
-          {% endfor %}
-          <button type="submit" class="btn btn-primary w-100 form-submit-btn">Create Account</button>
+
+            <!-- Right: requirements -->
+            <div class="col-md-5" style="border-left:1px solid #e8e4db; padding-left:1rem;">
+              <p class="form-label-custom" style="margin-bottom:0.5rem;">PASSWORD REQUIREMENTS</p>
+              <ul style="font-size:0.78rem; color:#888780; padding-left:1rem; line-height:2;">
+                <li>At least 8 characters</li>
+                <li>Cannot be too similar to your username</li>
+                <li>Cannot be a commonly used password</li>
+                <li>Cannot be entirely numeric</li>
+              </ul>
+            </div>
+
+          </div>
+
+          <div class="d-grid mt-4">
+            <button type="submit" class="btn btn-primary btn-lg form-submit-btn">
+              Create Account
+            </button>
+          </div>
+
         </form>
-
-        <p class="text-center mt-3 text-muted form-footer-text">
-          Already have an account? <a href="{% url 'login' %}" class="link-highlight">Login here</a>
-        </p>
       </div>
-
     </div>
+
   </div>
 </div>
 
