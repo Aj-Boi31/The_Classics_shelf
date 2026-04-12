@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.views.generic import ListView, DetailView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
-from .models import Book, Favourite
+from .models import Book, Favourite, Genre
 from .forms import ContactForm
 
 class BookListView(ListView):
@@ -13,7 +13,17 @@ class BookListView(ListView):
     context_object_name = 'books'
 
     def get_queryset(self):
-        return Book.objects.order_by('?')
+        queryset = Book.objects.order_by('?')
+        genre_id = self.request.GET.get('genre')
+        if genre_id:
+            queryset = queryset.filter(genre__id=genre_id)
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['genres'] = Genre.objects.all()
+        context['selected_genre'] = self.request.GET.get('genre', '')
+        return context
 
 class BookDetailView(DetailView):
     model = Book

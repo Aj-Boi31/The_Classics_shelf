@@ -20,6 +20,20 @@
     </div>
   {% endif %}
 
+  <!-- Genre filter -->
+  <div class="d-flex gap-2 flex-wrap mb-4">
+    <a href="{% url 'book_list' %}"
+       class="btn btn-sm {% if not selected_genre %}btn-primary{% else %}btn-outline-primary{% endif %}">
+      All
+    </a>
+    {% for genre in genres %}
+      <a href="?genre={{ genre.id }}"
+         class="btn btn-sm {% if selected_genre == genre.id|stringformat:'s' %}btn-primary{% else %}btn-outline-primary{% endif %}">
+        {{ genre.name }}
+      </a>
+    {% endfor %}
+  </div>
+
   <div class="row row-cols-2 row-cols-md-6 g-4">
     {% for book in books %}
       <div class="col">

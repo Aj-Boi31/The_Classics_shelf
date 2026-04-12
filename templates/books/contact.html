@@ -18,11 +18,7 @@
     <div class="col-md-5">
       <div class="book-card p-4">
 
-        {% if messages %}
-          {% for message in messages %}
-            <div class="alert alert-success">{{ message }}</div>
-          {% endfor %}
-        {% endif %}
+        
 
         <form method="post">
           {% csrf_token %}
@@ -30,7 +26,7 @@
           <div class="mb-4">
             <label class="form-label" style="font-size:0.85rem; color:#5f5e5a; letter-spacing:0.03em;">YOUR NAME</label>
             <input type="text" name="name" class="form-control form-control-lg"
-                   placeholder="e.g. Jane Austen"
+                   placeholder="e.g. John Doe"
                    value="{{ form.name.value|default:'' }}"
                    style="border-color:#e8e4db; font-size:1rem;">
           </div>
@@ -38,7 +34,7 @@
           <div class="mb-4">
             <label class="form-label" style="font-size:0.85rem; color:#5f5e5a; letter-spacing:0.03em;">EMAIL ADDRESS</label>
             <input type="email" name="email" class="form-control form-control-lg"
-                   placeholder="e.g. jane@example.com"
+                   placeholder="e.g. something@example.com"
                    value="{{ form.email.value|default:'' }}"
                    style="border-color:#e8e4db; font-size:1rem;">
           </div>
