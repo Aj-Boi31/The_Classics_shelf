@@ -1,28 +1,63 @@
 # The Classics Shelf
 
-A Django-based classic literature catalogue built for CSC1025 Project 2.
+The Classics Shelf is a personal book catalogue for classic literature, built with Django for CSC1025 Project 02 (2026). Visitors can browse the full collection that they have added complete with cover art, author, publication year, genre, and synopsis with the order shuffled on every visit so something new always catches the eye. A genre list narrows the shelf to a specific flavour of reading, while individual detail pages let users step through the catalogue one book at a time. Registered users get more: they can toggle a heart to save favourites to their own private reading list, submit entirely new titles complete with an uploaded cover image, and remove entries they no longer want on the shelf. The whole site is backed by Django's authentication system and an admin panel wired up for fast search and filtering across all three models.
 
-## About
-A website for browsing and saving classic literature books. Users can register,
-login, browse books by genre, save favourites and contact the site.
+---
 
 ## Features
-- Browse classic literature catalogue
-- Filter books by genre
-- User registration and login
-- Save books to favourites
-- Add and delete books
-- Contact form
-- Django admin panel
+
+- **Browse & discover** — book catalogue displayed in randomised order on every load, with cover images, author, year, genre, and description
+- **Filter by genre** — dropdown filter applied via `get_queryset()` override on the list view
+- **Book detail pages** — with prev/next navigation across the full catalogue
+- **User auth** — register, login, and logout using Django's built-in auth system
+- **Favourites** — logged-in users can toggle any book as a favourite; a dedicated page lists their saved books
+- **Add & delete books** — authenticated users can submit new books with cover image uploads; delete is also protected
+- **Contact form** — validated Django form with success flash message
+- **Admin panel** — fully configured with search, filtering, and ordering on all three models
+
+---
 
 ## Tech Stack
-- Django 6.0
-- Python 3.14
-- Bootstrap 5
-- SQLite
 
-## Setup
-1. Clone the repo
-2. Install dependencies: `pip install django pillow`
-3. Run migrations: `python manage.py migrate`
-4. Run server: `python manage.py runserver`
+| Layer       | Technology          |
+|-------------|---------------------|
+| Framework   | Django 6.0          |
+| Language    | Python 3.14         |
+| Frontend    | Bootstrap 5 (CDN)   |
+| Database    | SQLite              |
+| Images      | Pillow (ImageField) |
+
+---
+
+## Project Structure
+
+```
+book_project/          # Project config (settings, urls, wsgi)
+books/                 # Core app — models, views, urls, admin, forms, templates
+accounts/              # Auth app — register, login, logout views and templates
+media/                 # Uploaded cover images (covers/)
+static/                # Static assets
+templates/             # Base templates
+```
+
+---
+
+## Models
+
+- **Genre** — `name` (CharField); linked to Book via ForeignKey
+- **Book** — `title`, `author`, `year_published`, `genre` (FK), `description`, `cover_image` (ImageField)
+- **Favourite** — `user` (FK), `book` (FK), `added_on` (auto); enforces `unique_together` to prevent duplicate saves
+
+---
+
+## Key Django Patterns Used
+
+- Class-based views (`ListView`, `DetailView`, `CreateView`, `DeleteView`) with `LoginRequiredMixin`
+- `get_queryset()` override for randomised display and genre filtering
+- `get_context_data()` override to pass favourites status and prev/next book navigation
+- Function-based view with `@login_required` for the favourite toggle
+- Django's built-in `UserCreationForm` and `AuthenticationForm` for auth
+- `ImageField` with Pillow for book cover uploads
+- Custom `ModelAdmin` classes with `list_display`, `search_fields`, `list_filter`, and `ordering`
+
+---
