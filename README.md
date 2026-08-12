@@ -29,6 +29,37 @@ The Classics Shelf is a personal book catalogue for classic literature, built wi
 
 ---
 
+## Running It Locally
+
+This project isn't hosted online — clone the repo and run it locally to try it out.
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/Aj-Boi31/The_Classics_shelf.git
+cd The_Classics_shelf
+
+# 2. Create and activate a virtual environment
+python -m venv venv
+venv\Scripts\activate        # Windows
+source venv/bin/activate     # macOS/Linux
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Apply migrations
+python manage.py migrate
+
+# 5. (Optional) create an admin account
+python manage.py createsuperuser
+
+# 6. Run the dev server
+python manage.py runserver
+```
+
+Then visit `http://127.0.0.1:8000/` in your browser. Register an account to add books, mark favourites, and try the full authenticated flow.
+
+---
+
 ## Project Structure
 
 ```
