@@ -1,0 +1,274 @@
+[
+  {
+    "model": "books.genre",
+    "pk": 1,
+    "fields": {
+      "name": "Gothic"
+    }
+  },
+  {
+    "model": "books.genre",
+    "pk": 2,
+    "fields": {
+      "name": "Romance"
+    }
+  },
+  {
+    "model": "books.genre",
+    "pk": 3,
+    "fields": {
+      "name": "Adventure"
+    }
+  },
+  {
+    "model": "books.genre",
+    "pk": 4,
+    "fields": {
+      "name": "Tragedy"
+    }
+  },
+  {
+    "model": "books.genre",
+    "pk": 5,
+    "fields": {
+      "name": "Satire"
+    }
+  },
+  {
+    "model": "books.genre",
+    "pk": 6,
+    "fields": {
+      "name": "Mystery"
+    }
+  },
+  {
+    "model": "books.genre",
+    "pk": 7,
+    "fields": {
+      "name": "Fantasy"
+    }
+  },
+  {
+    "model": "books.genre",
+    "pk": 8,
+    "fields": {
+      "name": "Philosophical Fiction"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 1,
+    "fields": {
+      "title": "Jane Eyre",
+      "author": "Charlotte Brontë",
+      "year_published": 1847,
+      "genre": 1,
+      "description": "Jane Eyre follows the life of an orphaned girl who grows up in harsh conditions before becoming a governess at Thornfield Hall. There she falls in love with the brooding Mr. Rochester, only to discover a dark secret hidden within the mansion's walls. A powerful story of love, independence and moral courage.",
+      "cover_image": null
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 2,
+    "fields": {
+      "title": "Wuthering Heights",
+      "author": "Emily Brontë",
+      "year_published": 1847,
+      "genre": 1,
+      "description": "Set on the wild Yorkshire moors, Wuthering Heights tells the story of the intense and destructive love between Catherine Earnshaw and the mysterious Heathcliff. Spanning two generations, it is a tale of obsession, revenge and the untameable forces of human passion.",
+      "cover_image": null
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 3,
+    "fields": {
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "year_published": 1813,
+      "genre": 2,
+      "description": "The story follows the spirited Elizabeth Bennet as she navigates issues of marriage, morality and class in rural England. When the proud and wealthy Mr. Darcy enters her life, their mutual prejudices must be overcome before love can flourish. A witty and enduring portrait of society and the human heart.",
+      "cover_image": null
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 4,
+    "fields": {
+      "title": "Sense and Sensibility",
+      "author": "Jane Austen",
+      "year_published": 1811,
+      "genre": 2,
+      "description": "Two sisters, Elinor and Marianne Dashwood, represent contrasting approaches to life and love — one guided by reason, the other by deep feeling. After their father's death leaves them in reduced circumstances, both must navigate heartbreak and society's expectations in search of happiness.",
+      "cover_image": null
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 5,
+    "fields": {
+      "title": "Moby Dick",
+      "author": "Herman Melville",
+      "year_published": 1851,
+      "genre": 3,
+      "description": "Narrated by the sailor Ishmael, Moby Dick follows the obsessive quest of Captain Ahab to hunt the great white whale that destroyed his leg. A sweeping epic of the sea, it explores themes of fate, obsession, and humanity's struggle against the forces of nature.",
+      "cover_image": null
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 6,
+    "fields": {
+      "title": "Treasure Island",
+      "author": "Robert Louis Stevenson",
+      "year_published": 1883,
+      "genre": 3,
+      "description": "Young Jim Hawkins stumbles upon a treasure map leading to a fortune buried by the notorious pirate Captain Flint. Setting sail with a crew that includes the cunning Long John Silver, Jim is drawn into a dangerous adventure of treachery, courage and buried gold.",
+      "cover_image": null
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 7,
+    "fields": {
+      "title": "Hamlet",
+      "author": "William Shakespeare",
+      "year_published": 1603,
+      "genre": 4,
+      "description": "Prince Hamlet of Denmark is visited by his father's ghost, who reveals he was murdered by Hamlet's uncle Claudius, now king. Torn between action and doubt, Hamlet's quest for revenge spirals into tragedy for all those around him. One of the greatest explorations of grief, betrayal and moral uncertainty ever written.",
+      "cover_image": null
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 8,
+    "fields": {
+      "title": "Macbeth",
+      "author": "William Shakespeare",
+      "year_published": 1606,
+      "genre": 4,
+      "description": "Driven by ambition and the prophecies of three witches, the Scottish general Macbeth murders King Duncan to seize the throne. But power brings only paranoia and guilt, drawing both Macbeth and Lady Macbeth into a downward spiral of violence and madness. A chilling study of unchecked ambition and its consequences.",
+      "cover_image": null
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 9,
+    "fields": {
+      "title": "Gulliver's Travels",
+      "author": "Jonathan Swift",
+      "year_published": 1726,
+      "genre": 5,
+      "description": "Surgeon Lemuel Gulliver embarks on a series of fantastical voyages — to the tiny people of Lilliput, the giants of Brobdingnag, and the rational horses of Houyhnhnm land. Each journey serves as a sharp satirical commentary on politics, human nature and the absurdities of eighteenth century society.",
+      "cover_image": null
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 10,
+    "fields": {
+      "title": "Great Expectations",
+      "author": "Charles Dickens",
+      "year_published": 1861,
+      "genre": 6,
+      "description": "Young Pip grows up as an orphan in the English marshes, dreaming of becoming a gentleman. When a mysterious benefactor provides him with wealth and an education in London, Pip must confront questions of class, loyalty and what it truly means to be a good person. A rich and moving portrait of ambition and self discovery.",
+      "cover_image": null
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 11,
+    "fields": {
+      "title": "Oliver Twist",
+      "author": "Charles Dickens",
+      "year_published": 1837,
+      "genre": 6,
+      "description": "Young Oliver Twist is born in a workhouse and forced to survive on the brutal streets of London after daring to ask for more food. Falling in with a gang of pickpockets led by the cunning Fagin, Oliver must navigate a dangerous criminal underworld while searching for his true identity and a place to belong.",
+      "cover_image": null
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 12,
+    "fields": {
+      "title": "Frankenstein",
+      "author": "Mary Shelley",
+      "year_published": 1818,
+      "genre": 1,
+      "description": "Ambitious scientist Victor Frankenstein becomes obsessed with the secret of life and creates a living creature from dead body parts. Horrified by what he has made, he abandons his creation — setting in motion a chain of devastating consequences. A haunting meditation on ambition, responsibility and what it means to be human.",
+      "cover_image": null
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 13,
+    "fields": {
+      "title": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "year_published": 1937,
+      "genre": 7,
+      "description": "Bilbo Baggins, a comfort-loving hobbit, is swept into an epic quest by the wizard Gandalf and a company of dwarves to reclaim their mountain home from the fearsome dragon Smaug. Along the way Bilbo discovers a mysterious golden ring and a courage he never knew he had. The beloved prequel to The Lord of the Rings.",
+      "cover_image": null
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 14,
+    "fields": {
+      "title": "The Time Machine",
+      "author": "H.G. Wells",
+      "year_published": 1895,
+      "genre": 7,
+      "description": "A Victorian scientist builds a machine capable of travelling through time and propels himself hundreds of thousands of years into the future, where he discovers humanity has evolved into two distinct species — the gentle Eloi and the terrifying Morlock. A pioneering work of science fiction that raises profound questions about class, evolution and the fate of civilisation.",
+      "cover_image": null
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 15,
+    "fields": {
+      "title": "The Adventures of Tom Sawyer",
+      "author": "Mark Twain",
+      "year_published": 1876,
+      "genre": 5,
+      "description": "Young Tom Sawyer grows up along the Mississippi River, getting into endless mischief with his friend Huckleberry Finn. From whitewashing fences to witnessing a murder in a graveyard, Tom's adventures are both hilarious and surprisingly dangerous. A sharp and affectionate satire of small town American life.",
+      "cover_image": null
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 16,
+    "fields": {
+      "title": "Candide",
+      "author": "Voltaire",
+      "year_published": 1759,
+      "genre": 8,
+      "description": "Young Candide is raised to believe this is the best of all possible worlds, but a series of disasters — war, earthquake, slavery and betrayal — force him to question everything he has been taught. A razor sharp and darkly comic masterpiece that skewers blind optimism and the absurdity of human suffering.",
+      "cover_image": null
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 17,
+    "fields": {
+      "title": "The Brothers Karamazov",
+      "author": "Fyodor Dostoevsky",
+      "year_published": 1880,
+      "genre": 8,
+      "description": "Three brothers — the passionate Dmitri, the intellectual Ivan, and the saintly Alyosha — are drawn into a web of family conflict, murder and moral crisis when their corrupt father is killed. A towering exploration of faith, doubt, free will and the nature of evil that many consider the greatest novel ever written",
+      "cover_image": null
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 18,
+    "fields": {
+      "title": "Thus Spoke Zarathustra",
+      "author": "Friedrich Nietzsche",
+      "year_published": 1883,
+      "genre": 8,
+      "description": "The prophet Zarathustra descends from his mountain solitude to share his wisdom with humanity, preaching the death of God and the coming of the Übermensch. Written in soaring poetic prose, this is one of the most provocative and influential works of Western philosophy, presented as a work of literary fiction.",
+      "cover_image": null
+    }
+  }
+]
