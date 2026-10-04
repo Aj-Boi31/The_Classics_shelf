@@ -4,6 +4,14 @@ The Classics Shelf is a personal book catalogue for classic literature, built wi
 
 ---
 
+## Screenshots
+
+![Browse the shelf, filter by genre](docs/home.png)
+
+![Book detail page with previous / next navigation](docs/book-detail.png)
+
+---
+
 ## Features
 
 - **Browse & discover** — book catalogue displayed in randomised order on every load, with cover images, author, year, genre, and description
@@ -92,3 +100,11 @@ templates/             # Base templates
 - Custom `ModelAdmin` classes with `list_display`, `search_fields`, `list_filter`, and `ordering`
 
 ---
+
+## Testing
+
+```bash
+python manage.py test
+```
+
+Nine tests cover genre filtering on the shelf, login protection on the add / delete / favourites views, the favourite toggle (add then remove), favourites staying private to each user, and the detail page's previous / next navigation and 404 handling.
