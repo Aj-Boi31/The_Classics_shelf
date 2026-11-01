@@ -4,6 +4,10 @@ A book catalogue for classic literature. You can browse the shelf, filter by gen
 
 I built it on my own in Django for my CSC1025 project (2026). It isn't hosted, so you run it locally. That takes about two minutes, steps are [below](#run-it).
 
+![A tour of the site: browse, genre filter, book pages, login, favourites, a 404 and the passing tests](docs/demo.gif)
+
+The GIF is a real run of the site in Chrome, followed by `python manage.py test`. It uses a throwaway demo account in a copy of the database, so nothing in `db.sqlite3` changes. Rebuild it with `pip install Pillow playwright` and `python docs/demo/make_demo_gif.py`.
+
 ![Browse the shelf, filter by genre](docs/home.png)
 
 ## What you'll see
